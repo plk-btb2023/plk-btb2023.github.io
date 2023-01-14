@@ -1,7 +1,7 @@
 *{
 	padding: 0;
 	margin: 0;
-	background-origin: border-box;
+	box-sizing: border-box;
 	font-family: 'Jost', sans-serif;
 	list-style: none;
 	text-decoration: none;
@@ -17,7 +17,7 @@
 	--p-font: 1.1rem;
 }
 body{
-	background: var(--bg-color); 
+	background: var(--bg-color);
 	color: var(--text-color);
 }
 header{
@@ -51,14 +51,14 @@ header{
 	padding: 10px 27px;
 }
 .navlist a::after{
-	 content: '';
-	 position: absolute;
-	 width: 0;
-	 height: 2%;
-	 background: var(--main-color);
-	 bottom: -3px;
-	 left: 0;
-	 transition: ease .40s;
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	background: var(--main-color);
+	bottom: -3px;
+	left: 0;
+	transition: ease .40s;
 }
 .navlist a:hover::after{
 	width: 100%;
@@ -66,7 +66,7 @@ header{
 #menu-icon{
 	font-size: 35px;
 	color: var(--text-color);
-	z-index: 1001;
+	z-index: 10001;
 	cursor: pointer;
 	display: none;
 }
@@ -90,12 +90,13 @@ header{
 }
 
 section{
-	padding: 100px 18px;
+	padding: 100px 18%;
 }
 .home{
-	min-width: 100vh;
+	min-height: 100vh;
 	height: 100%;
-	background: url(../img/background.jpg);
+	width: 100%;
+	background: url(./img/background.jpg);
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -108,6 +109,11 @@ section{
 	margin: 10px 0px 25px;
 	font-size: var(--big-font);
 	line-height: 1;
+	font-weight: 500;
+}
+.home-text h5{
+	margin-bottom: 23px;
+	font-size: 19px;
 	font-weight: 500;
 }
 span{
@@ -131,7 +137,7 @@ span{
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	background: rgba(128, 103, 240, 1);
+	background: rgba(128,103,240,1);
 	font-size: 17px;
 	color: var(--bg-color);
 	margin-right: 22px;
@@ -150,7 +156,7 @@ span{
 	padding: 10px 40px;
 	font-weight: 500;
 	line-height: 24px;
-	border-radius: 40px;
+	border-radius: 30px;
 	transition: ease .40s;
 }
 .btn:hover{
@@ -200,12 +206,12 @@ header.sticky{
 	box-shadow: 18px 0px 87px 0px rgb(10 15 70 / 7%);
 	border-radius: 12px;
 	will-change: transform;
-	transform: perspective(1000px) rotateX(4.80deg) rotateY(10.23deg) scale3d(1.05, 1.05, 1.05);
+	transform: perspective(1000px) rotateX(4.80deg) rotateY(10.23deg) scale3d(1.05,1.05,1.05);
 }
 
 .about{
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 2fr);
 	align-items: center;
 	grid-gap: 2rem;
 }
@@ -230,7 +236,7 @@ header.sticky{
 	font-size: var(--p-font);
 	color: var(--secound-color);
 	line-height: 28px;
-	margin-bottom: 445px;
+	margin-bottom: 45px;
 }
 
 .heading{
@@ -240,7 +246,7 @@ header.sticky{
 	font-size: var(--h2-font);
 	font-weight: 500;
 	margin: 7px 0px 20px;
-	line-height: 500;
+	line-height: 1.1;
 }
 .heading h3{
 	color: var(--main-color);
@@ -252,7 +258,7 @@ header.sticky{
 	color: var(--secound-color);
 	line-height: 28px;
 }
-.portofolio-content{
+.portfolio-content{
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(350px, auto));
 	grid-gap: 2rem;
@@ -266,23 +272,23 @@ header.sticky{
 }
 .col img{
 	max-width: 100%;
-	height: auto;
 	width: 550px;
+	height: auto;
 	object-fit: cover;
 	border-radius: 12px;
-	
 }
 .layer{
 	background: transparent;
 	height: 100%;
 	width: 100%;
+	position: absolute;
 	top: 0;
 	left: 0;
 	border-radius: 12px;
 	transition: all .40s;
 }
 .layer:hover{
-	background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, #191919);
+	background: linear-gradient(rgba(0,0,0,0.5) 0%, #191919);
 }
 .layer h3{
 	position: absolute;
@@ -300,10 +306,11 @@ header.sticky{
 	bottom: 52%;
 	opacity: 1;
 }
+
 .layer h5{
 	position: absolute;
 	width: 100%;
-	font-size: 17px;
+	font-size:17px;
 	font-weight: 500;
 	color: var(--bg-color);
 	bottom: 0;
@@ -319,12 +326,12 @@ header.sticky{
 
 .service-content{
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(400px, auto);
+	grid-template-columns: repeat(auto-fit, minmax(400px, auto));
 	grid-gap: 2rem;
 	align-items: center;
 	margin-top: 5rem;
 }
-.row{   
+.row{
 	background: #ffffff;
 	box-shadow: 18px 0px 87px 0px rgb(10 15 70 / 7%);
 	border-radius: 12px;
@@ -344,15 +351,10 @@ header.sticky{
 	background: #baebcd;
 }
 .s.s-three img{
-	background: #d9dlfa;
+	background: #d9d1fa;
 }
 .s.s-four img{
 	background: #faedce;
-}
-.row h3{
-	font-size: 24px;
-	font-weight: 500;
-	margin-bottom: 2px;
 }
 .row h3{
 	font-size: 24px;
@@ -418,7 +420,7 @@ header.sticky{
 	justify-content: center;
 	text-align: center;
 	border-radius: 12px;
-	background-image: url(../img/intro.png);
+	background-image: url(./img/intro.png);
 	background-size: cover;
 }
 .center h3{
@@ -433,7 +435,7 @@ header.sticky{
 	line-height: 26px;
 	margin-bottom: 25px;
 }
-.contact .action form input [type="email"] {
+.contact .action form input[type="email"] {
 	max-width: 100%;
 	width: 470px;
 	padding: 12px 15px;
@@ -464,13 +466,14 @@ header.sticky{
 	letter-spacing: 1px;
 }
 
-@media (max-width: 1425px) {
+@media (max-width: 1425px){
 	header{
 		padding: 16px 3%;
 		transition: .3s;
 	}
 	header.sticky{
 		padding: 10px 3%;
+		transition: .3s;
 	}
 	section{
 		padding: 70px 3%;
@@ -524,7 +527,7 @@ header.sticky{
 	}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px){
 	.home{
 		grid-template-columns: 1fr;
 		min-height: 130vh;
@@ -556,7 +559,7 @@ header.sticky{
 		transition: .3s;
 	}
 }
-@media (max-width: 540px) {
+@media (max-width: 540px){
 	.contact .action form input[type="email"] {
 		width: 310px;
 	}
